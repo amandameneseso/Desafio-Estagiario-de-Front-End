@@ -16,7 +16,7 @@ new Vivus(
   "gym",
   {
     type: "delayed",
-    duration: 200,
+    duration: 500,
     start: "autostart",
   },
   function (obj) {
@@ -28,7 +28,7 @@ new Vivus(
   "heart",
   {
     type: "delayed",
-    duration: 200,
+    duration: 500,
     start: "autostart",
   },
   function (obj) {
@@ -40,7 +40,7 @@ new Vivus(
   "group",
   {
     type: "delayed",
-    duration: 200,
+    duration: 500,
     start: "autostart",
   },
   function (obj) {
