@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="transition-colors duration-300">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>IdealFit Academia</title>
+
+    <script>
+      window.tailwind = {
+        config: {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                primary: { 500: "#2563eb", 600: "#1d4ed8" },
+              },
+              fontFamily: {
+                title,
+                h1: ["Shippori Antique", "sans-serif"],
+                body: ["lexend", "sans-serif"],
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vivus@latest/dist/vivus.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Secular+One&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body
+    class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 min-h-screen flex flex-col"
+  >
+    <!-- HEADER -->
+    <header
+      class="w-full border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"
+    >
+      <div
+        class="max-w-6xl mx-auto flex items-center justify-between"
+      >
+        <div class="flex items-center gap-3">
+          <div
+            class="w-10 h-10 rounded-lg bg-primary-500 flex items-center justify-center text-white font-bold"
+          ></div>
+          <div class="logo text-xl text-gray-900 dark:text-gray-100">
+            <img
+              src="/assets/logotipo.png"
+              alt="IdealFit Academia"
+              height="30"
+              width="150"
+              class="rounded-md"
+            />
+          </div>
+        </div>
+
+        <!-- Menu desktop -->
+        <nav class="hidden md:flex items-center gap-8 ml-auto">
+          <a href="#" class="hover:text-primary-500">Home</a>
+          <a href="#" class="hover:text-primary-500">Serviços</a>
+          <a href="#" class="hover:text-primary-500">Contato</a>
+        </nav>
+
+        <div class="flex items-center gap-3 m-5">
+          <!-- Theme Toggle (ícone troca via JS) -->
+          <button
+            id="theme-toggle"
+            aria-pressed="false"
+            aria-label="Alternar tema"
+            class="p-2 rounded-md bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition flex items-center gap-3"
+          >
+            <!-- icon-moon (visível no tema claro) -->
+            <svg
+              id="icon-moon"
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5 text-gray-700 dark:text-gray-200"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"
+              />
+            </svg>
+            <!-- icon-sun (inicialmente hidden; JS mostra/oculta) -->
+            <svg
+              id="icon-sun"
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5 text-gray-700 dark:text-gray-200 hidden"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 3v2m0 14v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2m18 0h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4M12 7a5 5 0 100 10 5 5 0 000-10z"
+              />
+            </svg>
+          </button>
+
+          <!-- Mobile menu button -->
+          <button
+            id="menu-btn"
+            class="md:hidden p-2 rounded-md bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+            aria-label="Abrir menu"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-6 h-6 text-gray-700 dark:text-gray-200"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 8h16M4 16h16"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Menu Mobile (coluna) -->
+      <nav
+        id="mobile-menu"
+        class="hidden md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700"
+      >
+        <div class="px-4 py-4 flex flex-col gap-2">
+          <a href="#" class="py-2">Home</a>
+          <a href="#" class="py-2">Serviços</a>
+          <a href="#" class="py-2">Contato</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main class="relative flex-grow">
+      <div class="swiper absolute inset-0 -z-10">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img
+              src="/assets/slide/imagem1.jpg"
+              alt="Alunos treinando na academia"
+              class="w-full h-[70vh] md:h-[80vh] lg:h-[85vh] object-cover"
+            />
+            <div class="absolute inset-0 bg-black/20"></div>
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="/assets/slide/imagem2.jpg"
+              alt="Equipamentos modernos da academia"
+              class="w-full h-[70vh] md:h-[80vh] lg:h-[85vh] object-cover"
+            />
+            <div class="absolute inset-0 bg-black/20"></div>
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="/assets/slide/imagem3.jpg"
+              alt="Pessoa levantando peso com foco"
+              class="w-full h-[70vh] md:h-[80vh] lg:h-[85vh] object-cover"
+            />
+            <div class="absolute inset-0 bg-black/20"></div>
+          </div>
+        </div>
+      </div>
+
+      <section
+        class="relative max-w-6xl mx-auto px-4 h-full flex flex-col items-center justify-center text-center text-white"
+      >
+        <div class="py-20 md:py-32">
+          <h1
+            class="text-4xl md:text-5xl lg:text-6xl mb-4 font-bold drop-shadow-lg"
+          >
+            TRANSFORME SEU CORPO E MENTE
+          </h1>
+          <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 drop-shadow">
+            Somos uma academia de alta qualidade, dedicada à saúde e bem-estar
+            acessíveis. A IdealFit é uma academia para você frequentar do seu
+            jeito e fazer o seu melhor.
+          </p>
+          <a
+            href="#"
+            class="px-8 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold transition transform hover:scale-105"
+          >
+            Matricule-se
+          </a>
+        </div>
+      </section>
+    </main>
+    <!-- SERVIÇOS -->
+
+    <section class="max-w-4xl mx-auto px-4 py-12">
+      <h2 class="text-xl text-center font-title mb-8">Nossos Serviços</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-4">
+        <div
+          class="flex flex-col p-2 pl-4 gap-2 rounded-lg border border-[#7AACDE] dark:border-gray-700 bg-white dark:bg-gray-800"
+        >
+          <svg
+            id="gym"
+            width="30px"
+            height="25px"
+            viewBox="0 0 32 32"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            class="text-gray-900 dark:text-gray-100"
+          >
+            <g id="icomoon-ignore"></g>
+            <path
+              stroke="currentColor"
+              d="M32 15.467h-3.147v-6.4h-3.2v-2.667h-4.267v9.067h-10.667v-9.067h-4.267v2.667h-3.2v6.4h-3.253v1.067h3.253v6.4h3.2v2.667h4.267v-9.067h10.667v9.067h4.267v-2.667h3.2v-6.4h3.147v-1.067zM4.32 21.867v-11.733h2.133v11.733h-2.133zM9.653 24.533h-2.133v-17.067h2.133v17.067zM24.587 24.533h-2.133v-17.067h2.133v17.067zM27.787 21.867h-2.133v-11.733h2.133v11.733z"
+              fill="none"
+            ></path>
+          </svg>
+          <h3 class="font-semibold mb-2 font-extralight">
+            Treinos Personalizados
+          </h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300">
+            Planos de treino personalizados, adaptados aos seus objetivos
+            individuais.
+          </p>
+        </div>
+        <div
+          class="flex flex-col pt-2 p-2 pl-4 gap-2 rounded-lg border border-[#7AACDE] dark:border-gray-700 bg-white dark:bg-gray-800"
+        >
+          <svg
+            id="heart"
+            width="25px"
+            height="25px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.7 4C18.87 4 21 6.98 21 9.76C21 15.39 12.16 20 12 20C11.84 20 3 15.39 3 9.76C3 6.98 5.13 4 8.3 4C10.12 4 11.31 4.91 12 5.71C12.69 4.91 13.88 4 15.7 4Z"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <h3 class="font-semibold mb-2">Cardio e musculação</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300">
+            Acesso a uma ampla variedade de equipamentos para todos os níveis de
+            condicionamento físico.
+          </p>
+        </div>
+        <div
+          class="flex flex-col pt-2 p-2 pl-4 gap-2 rounded-lg border border-[#7AACDE] dark:border-gray-700 bg-white dark:bg-gray-800"
+        >
+          <?xml version="1.0" encoding="utf-8"?>
+
+          <svg
+            id="group"
+            fill="none"
+            height="25px"
+            width="20px"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 24 24"
+            xml:space="preserve"
+          >
+            <g id="group">
+              <path
+                stroke="currentColor"
+                d="M24,15.9c0-2.8-1.5-5-3.7-6.1C21.3,8.8,22,7.5,22,6c0-2.8-2.2-5-5-5c-2.1,0-3.8,1.2-4.6,3c0,0,0,0,0,0c-0.1,0-0.3,0-0.4,0
+		c-0.1,0-0.3,0-0.4,0c0,0,0,0,0,0C10.8,2.2,9.1,1,7,1C4.2,1,2,3.2,2,6c0,1.5,0.7,2.8,1.7,3.8C1.5,10.9,0,13.2,0,15.9V20h5v3h14v-3h5
+		V15.9z M17,3c1.7,0,3,1.3,3,3c0,1.6-1.3,3-3,3c0-1.9-1.1-3.5-2.7-4.4c0,0,0,0,0,0C14.8,3.6,15.8,3,17,3z M13.4,4.2
+		C13.4,4.2,13.4,4.2,13.4,4.2C13.4,4.2,13.4,4.2,13.4,4.2z M15,9c0,1.7-1.3,3-3,3s-3-1.3-3-3s1.3-3,3-3S15,7.3,15,9z M10.6,4.2
+		C10.6,4.2,10.6,4.2,10.6,4.2C10.6,4.2,10.6,4.2,10.6,4.2z M7,3c1.2,0,2.2,0.6,2.7,1.6C8.1,5.5,7,7.1,7,9C5.3,9,4,7.7,4,6S5.3,3,7,3
+		z M5.1,18H2v-2.1C2,13.1,4.1,11,7,11v0c0,0,0,0,0,0c0.1,0,0.2,0,0.3,0c0,0,0,0,0,0c0.3,0.7,0.8,1.3,1.3,1.8
+		C6.7,13.8,5.4,15.7,5.1,18z M17,21H7v-2.1c0-2.8,2.2-4.9,5-4.9c2.9,0,5,2.1,5,4.9V21z M22,18h-3.1c-0.3-2.3-1.7-4.2-3.7-5.2
+		c0.6-0.5,1-1.1,1.3-1.8c0.1,0,0.2,0,0.4,0v0c2.9,0,5,2.1,5,4.9V18z"
+              />
+            </g>
+          </svg>
+          <h3 class="font-semibold mb-2">Aulas em grupo</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300">
+            Aulas envolventes e motivadoras, ministradas por instrutores
+            certificados.
+          </p>
+        </div>
+      </div>
+    </section>
+
+<!-- Seção: Pronto para começar -->
+    <section class="max-w-3xl mx-auto px-9 py-16 text-center">
+      <h2 class="text-2xl md:text-3xl font-title mb-4 text-gray-900 dark:text-gray-100">
+        Pronto para começar?
+      </h2>
+      <p class="text-base md:text-lg text-gray-700 dark:text-gray-300 mb-10">
+        Preencha o formulário abaixo e entraremos em contato o mais breve possível.
+      </p>
+
+      <form class="space-y-6 w-full">
+        <!-- Nome -->
+        <div class="flex flex-col text-left">
+          <input
+            type="text"
+            id="nome"
+            name="nome"
+            placeholder="Seu nome"
+            class="w-full px-4 py-3 rounded-lg dark:border-gray-700 bg-[#F0F2F5] dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+            required
+          />
+        </div>
+
+        <!-- E-mail -->
+        <div class="flex flex-col text-left">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Seu e-mail"
+            class="w-full px-4 py-3 rounded-lg dark:border-gray-700 bg-[#F0F2F5] dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+            required
+          />
+        </div>
+
+        <!-- Mensagem -->
+        <div class="flex flex-col text-left">
+          <textarea
+            id="mensagem"
+            name="mensagem"
+            placeholder="Sua mensagem"
+            class="w-full px-4 py-3 rounded-lg  dark:border-gray-700 bg-[#F0F2F5] dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+            required
+          ></textarea>
+        </div>
+
+        <!-- Botão -->
+        <button
+          type="submit"
+          class="w-[180px] sm:w-auto px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all"
+        >
+          Enviar
+        </button>
+      </form>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer
+      class="bg-gray-100 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300"
+    >
+      <div class="max-w-6xl mx-auto px-4 py-8">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center gap-6"
+        >
+          <div
+            class="text-gray-600 dark:text-gray-300 text-center md:text-left"
+          >
+            © <span id="year"></span> IdealFit Academia. Todos os direitos
+            reservados.
+          </div>
+
+          <div class="flex items-center gap-4">
+            <span class="text-gray-600 dark:text-gray-300 mr-2">Siga-nos:</span>
+
+            <!-- ícones inline (padrão branco com dark:bg gray-700) -->
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="p-2 rounded-full bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all duration-300"
+              aria-label="Facebook"
+            >
+              <!-- svg facebook -->
+              <svg
+                class="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M22 12a10 10 0 10-11.5 9.9v-7H8.9v-2.9h1.6V9.6c0-1.6 1-2.6 2.5-2.6.7 0 1.5.1 1.5.1v1.7h-.9c-.9 0-1.2.6-1.2 1.2v1.4h2.1l-.3 2.9h-1.8v7A10 10 0 0022 12z"
+                />
+              </svg>
+            </a>
+
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="p-2 rounded-full bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all duration-300"
+              aria-label="Instagram"
+            >
+              <svg
+                class="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm8.5 4.5a1 1 0 110 2 1 1 0 010-2zM12 7a5 5 0 100 10 5 5 0 000-10z"
+                />
+              </svg>
+            </a>
+
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="p-2 rounded-full bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all duration-300"
+              aria-label="Twitter"
+            >
+              <svg
+                class="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M22 5.8c-.7.3-1.4.6-2.1.7.8-.5 1.3-1.2 1.6-2.1-.8.5-1.7.9-2.6 1.2C18.3 5 17.2 4.5 16 4.5c-2.2 0-4 1.8-4 4 0 .3 0 .6.1.9C8.1 9.2 5.1 7.6 3.3 5c-.4.7-.6 1.4-.6 2.2 0 1.6.8 3 2 3.8-.6 0-1.2-.2-1.7-.5v.1c0 2.2 1.5 4 3.5 4.4-.4.1-.9.2-1.3.2-.3 0-.6 0-.9-.1.6 1.9 2.4 3.3 4.4 3.3-1.6 1.3-3.6 2.1-5.7 2.1H6c2 1.3 4.4 2.1 6.9 2.1 8.3 0 12.8-6.9 12.8-12.8v-.6c.9-.6 1.6-1.4 2.2-2.3-.8.4-1.7.7-2.6.8z"
+                />
+              </svg>
+            </a>
+
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="p-2 rounded-full bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all duration-300"
+              aria-label="YouTube"
+            >
+              <svg
+                class="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M23.5 6.2a3.1 3.1 0 00-2.2-2.2C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.3.5A3.1 3.1 0 00.5 6.2 32 32 0 000 12a32 32 0 00.5 5.8 3.1 3.1 0 002.2 2.2c1.7.5 9.3.5 9.3.5s7.6 0 9.3-.5a3.1 3.1 0 002.2-2.2A32 32 0 0024 12a32 32 0 00-.5-5.8zM9.8 15.5V8.5l6 3.5-6 3.5z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const swiper = new Swiper(".swiper", {
+        loop: true,
+        effect: "fade",
+        speed: 1500,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
+      });
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
