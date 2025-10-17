@@ -6,6 +6,7 @@
     <title>IdealFit Academia</title>
 
     <script>
+      // configuracoes do tailwind
       window.tailwind = {
         config: {
           darkMode: "class",
@@ -28,7 +29,7 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <!-- Fonts -->
+    <!-- fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Aoboshi+One&family=Lexend:wght@100..900&display=swap" rel="stylesheet">
@@ -36,7 +37,7 @@
 
   <body
     class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 min-h-screen flex flex-col font-[Lexend]"
-  >
+>
     <!-- HEADER -->
     <header
       class="w-full border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"
@@ -67,7 +68,7 @@
         </div>
         </div>
 
-        <!-- Menu desktop -->
+        <!-- menu -->
         <nav class="hidden md:flex items-center gap-8 ml-auto">
           <a href="#" class="hover:text-primary-500">Home</a>
           <a href="#" class="hover:text-primary-500">Serviços</a>
@@ -75,14 +76,14 @@
         </nav>
 
         <div class="flex items-center gap-3 m-5">
-          <!-- Theme Toggle (ícone troca via JS) -->
+          <!-- botão de tema (ícone troca via JS) -->
           <button
             id="theme-toggle"
             aria-pressed="false"
             aria-label="Alternar tema"
             class="p-2 rounded-md bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition flex items-center gap-3"
           >
-            <!-- icon-moon (visível no tema claro) -->
+            <!-- ícone lua (visível no tema claro) -->
             <svg
               id="icon-moon"
               xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +99,7 @@
                 d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"
               />
             </svg>
-            <!-- icon-sun (inicialmente hidden; JS mostra/oculta) -->
+            <!-- ícone sol (inicialmente hidden; JS mostra/oculta) -->
             <svg
               id="icon-sun"
               xmlns="http://www.w3.org/2000/svg"
@@ -116,7 +117,7 @@
             </svg>
           </button>
 
-          <!-- Mobile menu button -->
+          <!-- menu mobile -->
           <button
             id="menu-btn"
             class="md:hidden p-2 rounded-md bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
@@ -140,7 +141,7 @@
         </div>
       </div>
 
-      <!-- Menu Mobile (coluna) -->
+      <!-- menu mobile (coluna) -->
       <nav
         id="mobile-menu"
         class="hidden md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700"
@@ -153,7 +154,7 @@
       </nav>
     </header>
 
-    <!-- Conteúdo principal -->
+    <!-- seção principal -->
     <main class="relative min-h-[55vh] flex-grow">
       <div class="swiper absolute inset-0 -z-10">
         <div class="swiper-wrapper">
@@ -208,8 +209,8 @@
         </div>
       </section>
     </main>
-    <!-- SERVIÇOS -->
 
+    <!-- serviços -->
     <section class="max-w-4xl mx-auto px-4 py-12">
       <h2 class="text-2xl md:text-3xl mb-8 text-center text-gray-900 dark:text-gray-100 font-['Aoboshi_One']">Nossos Serviços</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -300,7 +301,7 @@
       </div>
     </section>
 
-<!-- Seção: Pronto para começar -->
+    <!-- seção formulário -->
     <section class="max-w-3xl mx-auto px-9 py-16 text-center">
       <h2 class="text-2xl md:text-3xl mb-4 text-gray-900 dark:text-gray-100 font-['Aoboshi_One']">
         Pronto para começar?
@@ -356,7 +357,7 @@
     </section>
 
 
-    <!-- FOOTER -->
+    <!-- footer -->
     <footer
       class="bg-gray-100 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300"
     >
@@ -412,6 +413,7 @@
       </div>
     </footer>
     <script>
+      // inicializa o Swiper no elemento que tem a classe ".swiper"
       const swiper = new Swiper(".swiper", {
         loop: true,
         effect: "fade",
@@ -424,6 +426,7 @@
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
+        // configura o autoplay do slider
         autoplay: {
           delay: 4000,
           disableOnInteraction: false,
@@ -432,8 +435,9 @@
     </script>
     <script src="script.js"></script>
     <script>
+      // seleciona o botão "Matricule-se" pelo seu ID
       const btn = document.getElementById('matricula-btn');
-
+      // adiciona um "ouvinte" que espera por um clique no botão
       btn.addEventListener('click', (e) => {
         e.preventDefault(); // previne o link de navegar
         confetti({
@@ -446,6 +450,7 @@
     </script>
 
     <script>
+      // espera a página inteira carregar para garantir que todos os elementos existam
       window.addEventListener('load', () => {
         const btn = document.getElementById('matricula-btn');
         const tl = gsap.timeline({ repeat: -1 }); // repete infinitamente
