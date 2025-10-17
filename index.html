@@ -21,7 +21,8 @@
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/vivus@latest/dist/vivus.min.js"></script>
-    <link
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>   <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
@@ -47,15 +48,23 @@
           <div
             class="w-10 h-10 rounded-lg bg-primary-500 flex items-center justify-center text-white font-bold"
           ></div>
-          <div class="logo text-xl text-gray-900 dark:text-gray-100">
-            <img
-              src="assets/logotipo.png"
-              alt="IdealFit Academia"
-              height="30"
-              width="150"
-              class="rounded-md"
-            />
-          </div>
+        <div class="logo text-xl text-gray-900 dark:text-gray-100">
+          <img
+            src="assets/logotipo.png"
+            alt="IdealFit Academia"
+            height="30"
+            width="150"
+            class="rounded-md block dark:hidden"
+          />
+
+          <img
+            src="assets/logotipo-dark.png"
+            alt="IdealFit Academia"
+            height="30"
+            width="150"
+            class="rounded-md hidden dark:block"
+          />
+        </div>
         </div>
 
         <!-- Menu desktop -->
@@ -176,7 +185,7 @@
       </div>
 
       <section
-        class="relative max-w-7xl mx-auto px-4 h-full flex flex-col items-center justify-center text-center text-white"
+        class="relative max-w-7xl mx-auto px-4 h-full flex flex-col items-center justify-center text-center text-white z-10"
       >
         <div class="py-20 md:py-32">
           <h1
@@ -191,7 +200,8 @@
           </p>
           <a
             href="#"
-            class="px-8 py-3 rounded-lg bg-transparent border-2 border-white text-white font-semibold transition transform hover:scale-105 hover:bg-white hover:text-[#477EA9]"
+            id="matricula-btn"
+            class="inline-block px-8 py-3 rounded-lg bg-transparent border-2 border-white text-white font-semibold transition-colors duration-300 hover:bg-white hover:text-[#477EA9]"
           >
             Matricule-se
           </a>
@@ -357,22 +367,18 @@
           <div
             class="text-gray-600 dark:text-gray-300 text-center md:text-left"
           >
-            © <span id="year"></span> IdealFit Academia. Todos os direitos
+            © <span id="year">2025</span> IdealFit Academia. Todos direitos
             reservados.
           </div>
 
           <div class="flex items-center gap-4">
             <span class="text-gray-600 dark:text-gray-300 mr-2">Siga-nos:</span>
 
-            <!-- ícones inline (padrão branco com dark:bg gray-700) -->
             <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#"
               class="p-2 rounded-full bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all duration-300"
               aria-label="Facebook"
             >
-              <!-- svg facebook -->
               <svg
                 class="w-4 h-4"
                 viewBox="0 0 24 24"
@@ -386,9 +392,7 @@
             </a>
 
             <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#"
               class="p-2 rounded-full bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all duration-300"
               aria-label="Instagram"
             >
@@ -400,44 +404,6 @@
               >
                 <path
                   d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm8.5 4.5a1 1 0 110 2 1 1 0 010-2zM12 7a5 5 0 100 10 5 5 0 000-10z"
-                />
-              </svg>
-            </a>
-
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="p-2 rounded-full bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all duration-300"
-              aria-label="Twitter"
-            >
-              <svg
-                class="w-4 h-4"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M22 5.8c-.7.3-1.4.6-2.1.7.8-.5 1.3-1.2 1.6-2.1-.8.5-1.7.9-2.6 1.2C18.3 5 17.2 4.5 16 4.5c-2.2 0-4 1.8-4 4 0 .3 0 .6.1.9C8.1 9.2 5.1 7.6 3.3 5c-.4.7-.6 1.4-.6 2.2 0 1.6.8 3 2 3.8-.6 0-1.2-.2-1.7-.5v.1c0 2.2 1.5 4 3.5 4.4-.4.1-.9.2-1.3.2-.3 0-.6 0-.9-.1.6 1.9 2.4 3.3 4.4 3.3-1.6 1.3-3.6 2.1-5.7 2.1H6c2 1.3 4.4 2.1 6.9 2.1 8.3 0 12.8-6.9 12.8-12.8v-.6c.9-.6 1.6-1.4 2.2-2.3-.8.4-1.7.7-2.6.8z"
-                />
-              </svg>
-            </a>
-
-            <a
-              href="https://youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="p-2 rounded-full bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all duration-300"
-              aria-label="YouTube"
-            >
-              <svg
-                class="w-4 h-4"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M23.5 6.2a3.1 3.1 0 00-2.2-2.2C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.3.5A3.1 3.1 0 00.5 6.2 32 32 0 000 12a32 32 0 00.5 5.8 3.1 3.1 0 002.2 2.2c1.7.5 9.3.5 9.3.5s7.6 0 9.3-.5a3.1 3.1 0 002.2-2.2A32 32 0 0024 12a32 32 0 00-.5-5.8zM9.8 15.5V8.5l6 3.5-6 3.5z"
                 />
               </svg>
             </a>
@@ -465,5 +431,36 @@
       });
     </script>
     <script src="script.js"></script>
+    <script>
+      const btn = document.getElementById('matricula-btn');
+
+      btn.addEventListener('click', (e) => {
+        e.preventDefault(); // previne o link de navegar
+        confetti({
+          particleCount: 150,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ['#3B82F6', '#1D4ED8', '#93C5FD', '#1F2937', '#000000']
+        });
+      });
+    </script>
+
+    <script>
+      window.addEventListener('load', () => {
+        const btn = document.getElementById('matricula-btn');
+        const tl = gsap.timeline({ repeat: -1 }); // repete infinitamente
+
+        tl.to(btn, {
+          x: 4,
+          duration: 0.07,
+          ease: "power1.inOut",
+          yoyo: true,
+          repeat: 19 // 0.05 * 20 = 1.4s total
+        });
+
+        // pausa de 2 segundos
+        tl.to(btn, { x: 0, duration: 2 });
+      });
+    </script>
   </body>
 </html>
